@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b915a1c1e885e4fa3a78b28a362a23cf, type: 3}
+  m_Name: boy.MSA
+  m_EditorClassIdentifier: 
+  limitToFPS: 0
+  fps: 20
+  totalSprites: 18
+  loop: 1
+  pixelPerfect: 0
+  pixelsPerUnit: 32
+  spriteLable:
+  - Shadow
+  - Head
+  - Torso
+  - Jacket
+  - Jacket-Back
+  - Hips
+  - Left Leg
+  - Right Leg
+  - Right Arm
+  - Right Forearm
+  - Right Hand
+  - Left Arm
+  - Left Forearm
+  - Left Hand
+  - Left Knee
+  - Right Knee
+  - Left Foot
+  - Right Foot
+  spriteLayer:
+  - Ground
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  frameTime:
+  - 0.5
+  frameLable:
+  - frame 0
+  frameCurves: 00000000
+  animations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sprites:
+  - {fileID: 21300000, guid: 486c3d196424a4f7d9f8263855952adc, type: 3}
+  - {fileID: 21300000, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300008, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300012, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300010, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300014, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300016, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300016, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300006, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300002, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300004, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300006, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300002, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300004, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300018, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300018, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300020, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 21300020, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  positions:
+  - {x: 0, y: 0}
+  - {x: 0.823269, y: 17.728476}
+  - {x: -0.16441068, y: 10.796304}
+  - {x: 2.4661593, y: 10.577091}
+  - {x: -4.3294816, y: 10.5222845}
+  - {x: -0.05480353, y: 7.3984747}
+  - {x: -2.3565538, y: 4.93232}
+  - {x: 1.8633207, y: 5.041928}
+  - {x: 5.6995697, y: 11.125119}
+  - {x: 6.02839, y: 8.001317}
+  - {x: 4.932319, y: 5.8091755}
+  - {x: -4.877519, y: 12.00198}
+  - {x: -5.4255557, y: 8.549356}
+  - {x: -5.041929, y: 6.4668145}
+  - {x: -2.1921418, y: 3.288213}
+  - {x: 1.9181244, y: 3.1786067}
+  - {x: -2.7401774, y: 1.0412675}
+  - {x: 2.5209641, y: 1.3152856}
+  flipX: 000000000000000100000001010100010001
+  scales:
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  rotations:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  sortOrders: e2ffffff05000000010000000600000002000000ffffffff0000000000000000080000000a0000000900000000000000fffffffffffffffffffffffffffffffffefffffffeffffff
+  curves: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  hide: 000000000000000000000000000000000000
