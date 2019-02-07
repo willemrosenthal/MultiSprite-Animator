@@ -166,6 +166,31 @@ public class MSAnimation : ScriptableObject {
 		}
 	}
 
+	// for making unlinked clones
+	public void CopyDataFrom(MSAnimation source) {
+		limitToFPS = source.limitToFPS;
+		fps = source.fps;
+		totalSprites = source.totalSprites;
+		loop = source.loop;
+		pixelPerfect = source.pixelPerfect;
+		pixelsPerUnit = source.pixelsPerUnit;
+
+		spriteLable = source.spriteLable;
+		spriteLayer = source.spriteLayer;
+		frameTime = source.frameTime;
+		frameLable = source.frameLable;
+		frameCurves = source.frameCurves;
+
+		animations = source.animations;
+		sprites = source.sprites;
+		positions = source.positions;
+		flipX = source.flipX;
+		scales = source.scales;
+		rotations = source.rotations;
+		sortOrders = source.sortOrders;
+		curves = source.curves;
+		hide = source.hide;
+	}
 
 	public void PrepareFrames() {
 		if (frames == null) {

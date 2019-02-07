@@ -13,12 +13,16 @@ namespace MultiSprite {
 	
 public partial class MultiSpriteEditor: EditorWindow {
 
+	MSAnimation _animOriginal = null;
 	MSAnimation _anim = null;
 	List<MSFrame> _frames = null;
 	int frameIndex = 0;
 	int spriteIndex = 0;
 	string[] spriteLables;
 	bool changesMade = false;
+	bool popSave = false;
+
+	Object obj = null;
 
 	// curves
 	string[] frameCurves;
@@ -76,6 +80,11 @@ public partial class MultiSpriteEditor: EditorWindow {
 		OnSelectionChange();
 	}
 
+	void OnDisable() {
+		if (popSave)
+			Revert();
+	}
+
 	void CheckIfPowerToolsPluginIsInstalled() {
 		Assembly assembly = typeof(PowerToolsIntegration).Assembly;
 		//Type type = assembly.GetType(namespaceQualifiedTypeName);
@@ -112,22 +121,33 @@ public partial class MultiSpriteEditor: EditorWindow {
 	}
 
 	void OnUndoRedo() {
-		// if animation still selected, undo changes
+		//if animation still selected, undo changes
 		if (_anim != null) {
-			_frames = null;
-			OnSelectionChange();
+			NewAnimationSelected();
+			Repaint();
 		}
 	}
 
 	void ChangeMade() {
 		changesMade = true;
+		popSave = true;
 	}
 
 	/// Unity event called when the selectd object changes
 	void OnSelectionChange() {
-		Object obj = Selection.activeObject;
+		if (obj != null && obj != Selection.activeObject && obj is MSAnimation && Selection.activeObject is MSAnimation && popSave) {
+			Revert();
+		}
+			
+		obj = Selection.activeObject;
+		//if (obj) Selection.selectionChanged
 		if ( (obj != _anim || _frames == null) && obj is MSAnimation ) {
+
 			_anim = Selection.activeObject as MSAnimation;
+
+			// creates a backed-up version of the animation pre editing
+			_animOriginal = ScriptableObject.CreateInstance<MSAnimation>();
+			_animOriginal.CopyDataFrom(_anim);
 			
 			NewAnimationSelected();
 		}
@@ -388,19 +408,36 @@ public partial class MultiSpriteEditor: EditorWindow {
 			_animFrameList.index = index;
 	}
 
-	void Save() {
+	void TempSave() {
 		_anim.ConvertToSavableFormat(_frames);
 		ConvertSpriteLayerForSaving();
+		//Debug.Log("TEMP SAVE COMPLETE");
+	}
+
+	void Save() {
+		TempSave();
+
+		// brings the backup up-to-date with the edits
+		_animOriginal.CopyDataFrom(_anim);
 		
 		// saving
 		var transforms = Selection.objects;
-		var so = new SerializedObject(transforms);
+		//Debug.Log("SAVE! transforms selected");
+		var so = new SerializedObject(transforms); // unity sometimes crashes here.
+		//Debug.Log("SAVE! so initialized");
 		so.ApplyModifiedProperties();
+		//Debug.Log("SAVE! so applied");
 
-		//EditorUtility.SetDirty(_anim);
+		EditorUtility.SetDirty(_anim);
+		//Debug.Log("Saved all the way");
+	}
 
-		//Undo.RecordObject(_anim, "Animation Change");
-		//Debug.Log("saved " + Time.time);
+	void Revert() {
+		_anim.CopyDataFrom(_animOriginal);
+		obj = _anim;
+
+		changesMade = false;
+		popSave = false;
 	}
 
 	void ConvertSpriteLayerForEditing() {
@@ -472,7 +509,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 		if (changesMade) {
 			Undo.RecordObject(_anim, "Animation Editor Change");
 			//_anim.ConvertToSavableFormat(_frames);
-			Save();
+			TempSave();
 			changesMade = false;
 		}
 	}

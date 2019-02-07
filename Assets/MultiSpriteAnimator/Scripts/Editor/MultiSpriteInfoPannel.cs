@@ -231,20 +231,22 @@ public partial class MultiSpriteEditor
 
 		GUILayout.Space(10);
 
-		// if (changesMade) {
-		// 	DividerLine();
-		// 	GUILayout.Space(10); 
-		// 	if (GUILayout.Button("Save")) {
-		// 		Save();
-		// 		changesMade = false;
-		// 	}
-		// 	if (GUILayout.Button("Revert") &&
-		// 		EditorUtility.DisplayDialog("Revert all changes?",
-		// 		"Are you sure you want to revert to the last save?", "Revert", "Cancel")) {
-		// 		NewAnimationSelected();
-		// 		changesMade = false;
-		// 	}
-		// }
+		if (popSave) {
+			DividerLine();
+			GUILayout.Space(10); 
+			if (GUILayout.Button("Save")) {
+				Save();
+				changesMade = false;
+				popSave = false;
+			}
+			if (GUILayout.Button("Revert") &&
+				EditorUtility.DisplayDialog("Revert all changes?",
+				"Are you sure you want to revert to the last save?", "Revert", "Cancel")) {
+				//_anim = Selection.activeObject as MSAnimation;
+				Revert();
+				NewAnimationSelected();
+			}
+		}
 		GUILayout.Space(10);
 
 		

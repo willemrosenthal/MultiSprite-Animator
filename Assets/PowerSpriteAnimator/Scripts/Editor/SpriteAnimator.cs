@@ -665,10 +665,10 @@ public partial class SpriteAnimator : EditorWindow
 			data = new SpriteRenderData();
 			data.m_currSprite = sprite;
 			data.m_prevRender = new PreviewRenderUtility();
-			data.m_prevRender.m_Camera.orthographic = true;
-			data.m_prevRender.m_Camera.transform.rotation = Quaternion.identity;
-			data.m_prevRender.m_Camera.nearClipPlane = 1;
-			data.m_prevRender.m_Camera.farClipPlane = 30;
+			data.m_prevRender.camera.orthographic = true;
+			data.m_prevRender.camera.transform.rotation = Quaternion.identity;
+			data.m_prevRender.camera.nearClipPlane = 1;
+			data.m_prevRender.camera.farClipPlane = 30;
 
 			if ( m_defaultSpriteShader == null )
 				m_defaultSpriteShader = Shader.Find("Sprites/Default");
@@ -702,8 +702,8 @@ public partial class SpriteAnimator : EditorWindow
 
 		// Setup preview camera size/pos
 		float finalScaleInv = 1.0f / (scale * sprite.pixelsPerUnit);
-		data.m_prevRender.m_Camera.orthographicSize = 0.5f * rect.height * finalScaleInv;
-		data.m_prevRender.m_Camera.transform.position = new Vector3(-offset.x * finalScaleInv, offset.y * finalScaleInv,-10f);
+		data.m_prevRender.camera.orthographicSize = 0.5f * rect.height * finalScaleInv;
+		data.m_prevRender.camera.transform.position = new Vector3(-offset.x * finalScaleInv, offset.y * finalScaleInv,-10f);
 
 		// begin preview
 		data.m_prevRender.BeginPreview(rect, GUIStyle.none);
@@ -723,7 +723,7 @@ public partial class SpriteAnimator : EditorWindow
 		data.m_prevRender.DrawMesh(data.m_previewMesh, pivotOffset / sprite.pixelsPerUnit, Quaternion.identity, data.m_mat, 0);
 
 		// Render preview to texture
-		data.m_prevRender.m_Camera.Render();
+		data.m_prevRender.camera.Render();
 		Texture texture = data.m_prevRender.EndPreview();
 		texture.filterMode = FilterMode.Point;
 
