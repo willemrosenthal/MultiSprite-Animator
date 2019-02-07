@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b915a1c1e885e4fa3a78b28a362a23cf, type: 3}
+  m_Name: robot-idle-up.MSA
+  m_EditorClassIdentifier: 
+  limitToFPS: 0
+  fps: 20
+  totalSprites: 16
+  loop: 1
+  pixelPerfect: 1
+  pixelsPerUnit: 32
+  spriteLable:
+  - Head
+  - Head-under
+  - Left Leg A
+  - Left Leg B
+  - Left Leg C
+  - Left Leg D
+  - Right Leg A
+  - Right Leg B
+  - Right Leg C
+  - Right Leg D
+  - Left Foot
+  - Right Foot
+  - Left Eye
+  - Right Eye
+  - Antenna
+  - Shadow
+  spriteLayer:
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  - Use Parent
+  frameTime:
+  - 1
+  - 1
+  frameLable:
+  - frame 0
+  - frame 1
+  frameCurves: 0100000001000000
+  animations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  sprites:
+  - {fileID: 21300002, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300008, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300012, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300012, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300016, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300016, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300010, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300000, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300004, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 0}
+  positions:
+  - {x: 0.039663285, y: 1.0807396}
+  - {x: 0.039663285, y: 0.67728734}
+  - {x: -0.4099653, y: 0.5733358}
+  - {x: -0.46967867, y: 0.4535167}
+  - {x: -0.43781024, y: 0.3230853}
+  - {x: -0.35781217, y: 0.22258548}
+  - {x: 0.48960772, y: 0.5843946}
+  - {x: 0.5514549, y: 0.462202}
+  - {x: 0.51184696, y: 0.32101718}
+  - {x: 0.43659246, y: 0.22025149}
+  - {x: -0.31760418, y: 0.038180422}
+  - {x: 0.3477988, y: 0.05180536}
+  - {x: -0.10221057, y: 0.9953755}
+  - {x: 0.17713077, y: 0.9957964}
+  - {x: 0.021301806, y: 1.3474568}
+  - {x: 0.0046270005, y: -0.027762003}
+  - {x: 0.057515167, y: 0.94665134}
+  - {x: 0.05280859, y: 0.60085726}
+  - {x: -0.47703543, y: 0.55417293}
+  - {x: -0.5750746, y: 0.42956308}
+  - {x: -0.53362477, y: 0.32787603}
+  - {x: -0.47758037, y: 0.2369577}
+  - {x: 0.5423057, y: 0.5508595}
+  - {x: 0.6328974, y: 0.42387623}
+  - {x: 0.57412636, y: 0.30185425}
+  - {x: 0.49408114, y: 0.22025149}
+  - {x: -0.31760418, y: 0.038180422}
+  - {x: 0.3477988, y: 0.05180536}
+  - {x: -0.11373468, y: 0.8324129}
+  - {x: 0.16736324, y: 0.82755774}
+  - {x: -0.044655487, y: 1.2480699}
+  - {x: 0.0046270005, y: -0.027762003}
+  flipX: 0000000000000000000000000000010000000000000000000000000000000100
+  scales:
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  rotations:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  sortOrders: 0a00000009000000080000000700000006000000050000000800000007000000060000000500000004000000040000000b0000000b0000000b000000f6ffffff0a00000009000000080000000700000006000000050000000800000007000000060000000500000004000000040000000b0000000b0000000b000000f6ffffff
+  curves: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  hide: 0000000000000000000000000101000000000000000000000000000001010000

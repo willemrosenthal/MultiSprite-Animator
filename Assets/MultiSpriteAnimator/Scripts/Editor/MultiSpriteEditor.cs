@@ -421,9 +421,9 @@ public partial class MultiSpriteEditor: EditorWindow {
 		_animOriginal.CopyDataFrom(_anim);
 		
 		// saving
-		var transforms = Selection.objects;
+		//var transforms = Selection.objects;
 		//Debug.Log("SAVE! transforms selected");
-		var so = new SerializedObject(transforms); // unity sometimes crashes here.
+		var so = new SerializedObject(obj); // unity sometimes crashes here.
 		//Debug.Log("SAVE! so initialized");
 		so.ApplyModifiedProperties();
 		//Debug.Log("SAVE! so applied");

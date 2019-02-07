@@ -50,7 +50,7 @@ public class MultiSpriteAnimator : MonoBehaviour {
 
 	// plays an animaiton
 	public void Play(MSAnimation animation, bool playIfNotAlreadyPlaying = true) {
-		if (playIfNotAlreadyPlaying && animation.name == animName)
+		if ((animation == null) || (playIfNotAlreadyPlaying && animation.name == animName))
 			return;
 
 		// converts frames to frame class format

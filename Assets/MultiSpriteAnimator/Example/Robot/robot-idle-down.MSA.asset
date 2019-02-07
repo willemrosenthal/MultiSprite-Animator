@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b915a1c1e885e4fa3a78b28a362a23cf, type: 3}
-  m_Name: robot-idle.MSA
+  m_Name: robot-idle-down.MSA
   m_EditorClassIdentifier: 
   limitToFPS: 0
   fps: 20
@@ -125,7 +125,7 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
   - {fileID: 0}
   positions:
-  - {x: 0.039663285, y: 1.0494896}
+  - {x: 0.039663285, y: 1.0807396}
   - {x: 0.039663285, y: 0.67728734}
   - {x: -0.4099653, y: 0.5733358}
   - {x: -0.46967867, y: 0.4535167}

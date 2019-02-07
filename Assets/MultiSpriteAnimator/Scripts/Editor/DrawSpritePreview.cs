@@ -165,8 +165,12 @@ public partial class MultiSpriteEditor {
 			texCoords.width *= (1.0f-(spriteRect.width-croppedRect.width)/spriteRect.width);
 			texCoords.height *= (1.0f-(spriteRect.height-croppedRect.height)/spriteRect.height);
 
-			if (flipX)
-				croppedRect.center += pivotPointShift - pivotOffset.x * Vector2.right;
+			if (flipX) {
+				// flipps sprite without moving it
+				croppedRect.center += Vector2.left * spriteRect.width;
+				// moves sprite to be based on pivot
+				croppedRect.center += Vector2.left * (sprite.textureRect.width - sprite.pivot.x * 2) * viewScale;
+			}
 
 			savedSpriteRect = croppedRect;
 			// Draw the texture
