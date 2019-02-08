@@ -498,7 +498,7 @@ public partial class MultiSpriteEditor {
 		return _frames[frameId].endTime - _frames[frameId].frameTime;
 	}
 	
-	void LayoutTimelineSprite( Rect rect, int frameNo ) {
+	void LayoutTimelineSprite( Rect rect, int frameNo, bool useForFirstSpritePreview = false ) {
 		float scale = 0.85f;
 
 		float xMin = 0;
@@ -564,6 +564,13 @@ public partial class MultiSpriteEditor {
 		}
 
 		spriteOriginOffset *= scale;
+
+		// if being used ot size the preview when opening a enw animation
+		if (useForFirstSpritePreview) {
+			m_previewScale = scale;
+			m_previewOffset = spriteOriginOffset;
+			return;
+		}
 
 		DrawAllFrameSprites(rect, false, frameNo, scale, true, spriteOriginOffset.x, spriteOriginOffset.y);
 	}

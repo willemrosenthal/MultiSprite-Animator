@@ -172,6 +172,12 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 		playback = new MSPlayback();
 		playback.PrepareAnimationData(_anim);
+
+
+		Rect previewRect = new Rect(0, 20, position.width-FRAME_PANEL_WIDTH-SPRITE_PANEL_WIDTH, position.height-20-TIMELINE_HEIGHT);
+		previewRect.width -= 50;
+		previewRect.height -= 50;
+		LayoutTimelineSprite(previewRect, 0, true);
 	}
 
 	void BuildFrameCurveArray() {
