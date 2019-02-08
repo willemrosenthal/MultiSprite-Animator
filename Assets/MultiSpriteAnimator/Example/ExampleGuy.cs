@@ -14,10 +14,13 @@ public class ExampleGuy : MonoBehaviour {
 	public MSAnimation walkUp;
 
 	Vector2 velocity = Vector2.zero;
+	Vector2 velocityAcceloration;
+	
 	Vector2 dir = Vector2.zero;
 	Vector2 lastFacing;
 
-	float speed = 3;
+	float speed = 5;
+	float accelTime = 0.25f;
 
 	MultiSpriteAnimator mas;
 	SpriteRenderer sr;
@@ -33,9 +36,12 @@ public class ExampleGuy : MonoBehaviour {
 
 		// plays appropraite animation
 		Animate();
-
+		
+		// gets velocity
+		velocity = Vector2.SmoothDamp( velocity, dir * speed, ref velocityAcceloration, accelTime, Mathf.Infinity);
+		
 		// moves him
-		transform.position += (Vector3)dir * speed * Time.deltaTime;
+		transform.position += (Vector3)velocity * Time.deltaTime;
 	}
 
 

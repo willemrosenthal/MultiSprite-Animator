@@ -460,10 +460,15 @@ public partial class MultiSpriteEditor: EditorWindow {
 	}
 
 	void ConvertSpriteLayerForSaving() {
-		// creates a new list of layesr for the sprites
+		if (gameLayers == null)
+			BuildGameLayers();
+		// creates a new list of layer for the sprites
 		_anim.spriteLayer = new string[_anim.totalSprites];
+
 		// gets and records the selected name for each layer
 		for (int i = 0; i < spriteLayers.Count; i++) {
+			if (spriteLayers[i] < 0 || spriteLayers[i] >= gameLayers.Length)
+				spriteLayers[i] = 0;
 			_anim.spriteLayer[i] = gameLayers[spriteLayers[i]];
 		}
 	}
