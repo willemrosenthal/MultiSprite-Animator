@@ -1,10 +1,4 @@
-﻿//-----------------------------------------
-//          PowerSprite Animator
-//  Copyright © 2017 Powerhoof Pty Ltd
-//			  powerhoof.com
-//----------------------------------------
-
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using System.Collections;

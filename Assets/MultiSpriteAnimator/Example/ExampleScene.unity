@@ -142,11 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2b7352c6f2346ccbf6eb96d03be47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleDown: {fileID: 11400000, guid: ef9ee63c65ad144f99df1425d8e46add, type: 2}
+  idleDown: {fileID: 0}
   idleSide: {fileID: 11400000, guid: 9f7221a2c8ddb4cf788dae2a95daef6e, type: 2}
   idleUp: {fileID: 11400000, guid: e68fd9b7dfde347e68e907137864ef9c, type: 2}
   walkSide: {fileID: 0}
-  walkDown: {fileID: 0}
+  walkDown: {fileID: 11400000, guid: 5f20580049d9e432babfb6c847464650, type: 2}
   walkUp: {fileID: 0}
 --- !u!212 &1226703618
 SpriteRenderer:
