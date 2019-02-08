@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using MultiSprite;
 
-public class ExampleGuy : MonoBehaviour {
-
-	public MSAnimation idleDown;
-	public MSAnimation idleSide;
-	public MSAnimation idleUp;
+public class RobotExample : MonoBehaviour {
 
 	public MSAnimation walkSide;
 	public MSAnimation walkDown;
 	public MSAnimation walkUp;
+	public MSAnimation walkUpSide;
+	public MSAnimation walkDownSide;
 
 	Vector2 velocity = Vector2.zero;
 	Vector2 velocityAcceloration;
@@ -52,9 +50,19 @@ public class ExampleGuy : MonoBehaviour {
 		if (velocity == Vector2.zero)
 			return;
 
+		// if x and y values are close, walk diagonally
+		if (velocity.x != 0 && velocity.y != 0 && Mathf.Abs(velocity.normalized.x) + 0.35 > Mathf.Abs(velocity.normalized.y) && Mathf.Abs(velocity.normalized.x) - 0.35 < Mathf.Abs(velocity.normalized.y)) {
+			if (velocity.y > 0)
+				mas.Play(walkUpSide, mas.GetTime());
+			else mas.Play(walkDownSide, mas.GetTime());
+			FaceMovementDirection();
+		}
+
 		// if facing to the side
-		if (velocity.x != 0 && Mathf.Abs(velocity.x) > Mathf.Abs(velocity.y))  
+		else if (velocity.x != 0 && Mathf.Abs(velocity.x) > Mathf.Abs(velocity.y)) {
 			mas.Play(walkSide, mas.GetTime());
+			FaceMovementDirection();
+		}
 
 		// if facing up
 		else if (velocity.y > 0) 
@@ -62,8 +70,10 @@ public class ExampleGuy : MonoBehaviour {
 
 		// if facing down
 		else mas.Play(walkDown, mas.GetTime());
+		
+	}
 
-
+	void FaceMovementDirection() {
 		// flip to face left or right
 		if (velocity.x > 0 && !sr.flipX)
 			sr.flipX = true;

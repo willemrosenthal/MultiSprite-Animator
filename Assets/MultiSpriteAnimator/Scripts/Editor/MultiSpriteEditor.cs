@@ -422,6 +422,8 @@ public partial class MultiSpriteEditor: EditorWindow {
 	}
 
 	void Save() {
+		MakeSureFirstFrameHasSpriteAndAnimationReferences();
+		
 		TempSave();
 
 		// brings the backup up-to-date with the edits
@@ -437,6 +439,8 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 		EditorUtility.SetDirty(_anim);
 		//Debug.Log("Saved all the way");
+
+		Repaint();
 	}
 
 	void Revert() {
@@ -480,6 +484,48 @@ public partial class MultiSpriteEditor: EditorWindow {
 			if (spriteLayers[i] < 0 || spriteLayers[i] >= gameLayers.Length)
 				spriteLayers[i] = 0;
 			_anim.spriteLayer[i] = gameLayers[spriteLayers[i]];
+		}
+	}
+
+	void MakeSureFirstFrameHasSpriteAndAnimationReferences() {
+		for (int i = 0; i < _anim.totalSprites; i++) {
+			Sprite s;
+			AnimationClip c;
+
+			// see if frame has a sprite
+			s = _frames[0].sprites[i].sprite;
+
+			// if PowerSprite Animator is installed
+			if (asType != null) {
+				// see if frame has a sprite
+				c = _frames[0].sprites[i].animation;
+
+				if (c != null || s != null)
+					continue;
+				
+				// if this frame doesn't have a sprite or animation, go from the last frame backward till we find a sprite or animation
+				if (c == null && s == null) {
+					for (int n = _frames.Count - 1; n > 0; n--) {
+						c = _frames[n].sprites[i].animation;
+						s = _frames[n].sprites[i].sprite;
+						if (s || c) break;
+					}
+					_frames[0].sprites[i].sprite = s;
+					_frames[0].sprites[i].animation = c;
+				}
+			}
+
+			// if PowerSprite Animator is not installed
+			else {
+				// if this frame doesn't have a sprite, go from the last frame backward till we find a sprite
+				if (s == null) {
+					for (int n = _frames.Count - 1; n > 0; n--) {
+						s = _frames[n].sprites[i].sprite;
+						if (s) break;
+					}
+					_frames[0].sprites[i].sprite = s;
+				}
+			}
 		}
 	}
 

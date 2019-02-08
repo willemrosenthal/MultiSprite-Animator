@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b915a1c1e885e4fa3a78b28a362a23cf, type: 3}
-  m_Name: boy.MSA
+  m_Name: boy-idle
   m_EditorClassIdentifier: 
   limitToFPS: 0
   fps: 20
@@ -37,7 +37,7 @@ MonoBehaviour:
   - Left Foot
   - Right Foot
   spriteLayer:
-  - Ground
+  - Use Parent
   - Use Parent
   - Use Parent
   - Use Parent
@@ -56,11 +56,31 @@ MonoBehaviour:
   - Use Parent
   - Use Parent
   frameTime:
-  - 0.5
+  - 1
+  - 1
   frameLable:
   - frame 0
-  frameCurves: 00000000
+  - frame 1
+  frameCurves: 0100000001000000
   animations:
+  - {fileID: 0}
+  - {fileID: 7400000, guid: 5d1a38af6a9724b37a0388871e81e32e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -98,9 +118,27 @@ MonoBehaviour:
   - {fileID: 21300018, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
   - {fileID: 21300020, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
   - {fileID: 21300020, guid: 4d48c3ed94a334b2fae5fba61cfa1c6c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   positions:
   - {x: 0, y: 0}
-  - {x: 0.823269, y: 17.728476}
+  - {x: 0.7806049, y: 17.941795}
   - {x: -0.16441068, y: 10.796304}
   - {x: 2.4661593, y: 10.577091}
   - {x: -4.3294816, y: 10.5222845}
@@ -117,11 +155,47 @@ MonoBehaviour:
   - {x: 1.9181244, y: 3.1786067}
   - {x: -2.7401774, y: 1.0412675}
   - {x: 2.5209641, y: 1.3152856}
-  flipX: 000000000000000100000001010100010001
+  - {x: 0, y: 0}
+  - {x: 0.823269, y: 17.576187}
+  - {x: -0.14265466, y: 10.5134735}
+  - {x: 2.5314271, y: 10.446554}
+  - {x: -4.2859693, y: 10.369991}
+  - {x: -0.05480353, y: 7.3984747}
+  - {x: -2.4423583, y: 4.9526286}
+  - {x: 1.6252002, y: 4.997756}
+  - {x: 5.764838, y: 10.929314}
+  - {x: 5.9413657, y: 7.9142923}
+  - {x: 4.8235383, y: 5.743907}
+  - {x: -5.008056, y: 11.6790285}
+  - {x: -5.5343366, y: 8.549356}
+  - {x: -4.8896356, y: 6.3580337}
+  - {x: -2.4322464, y: 3.0698931}
+  - {x: 1.9831126, y: 3.1761305}
+  - {x: -2.7411773, y: 1.0194355}
+  - {x: 2.5636282, y: 1.313286}
+  flipX: 000000000000000100000001010100010001000000000000000100000001010100010001
   scales:
   - {x: 1, y: 1}
   - {x: 1, y: 1}
   - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 1}
+  - {x: 1, y: 0.9}
   - {x: 1, y: 1}
   - {x: 1, y: 1}
   - {x: 1, y: 1}
@@ -156,6 +230,24 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  sortOrders: e2ffffff05000000010000000600000002000000ffffffff0000000000000000080000000a0000000900000000000000fffffffffffffffffffffffffffffffffefffffffeffffff
-  curves: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  hide: 000000000000000000000000000000000000
+  - 0
+  - 0
+  - 0
+  - -4
+  - 4
+  - 0
+  - 9
+  - -15
+  - -4
+  - 10
+  - 0
+  - 12
+  - -13
+  - -29
+  - -11
+  - 10
+  - 0
+  - 0
+  sortOrders: e2ffffff05000000010000000600000002000000ffffffff0000000000000000080000000a0000000900000000000000fffffffffffffffffffffffffffffffffefffffffeffffffe2ffffff05000000010000000600000002000000ffffffff0000000000000000080000000a0000000900000000000000fffffffffffffffffffffffffffffffffefffffffeffffff
+  curves: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  hide: 000000000000000000000000000000000000000000000000000000000000000000000000

@@ -32,7 +32,7 @@ public class MultiSpriteAnimator : MonoBehaviour {
 	MSPlayback playback;
 
 	// initialize
-	void Start() {
+	void Awake() {
 		playback = new MSPlayback();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -138,7 +138,9 @@ public class MultiSpriteAnimator : MonoBehaviour {
 
 		// sort order
 		SortingOrder();
+	}
 
+	void LateUpdate() {
 		if (spriteRenderer.flipX && Mathf.Sign(transform.localScale.x) > 0 || !spriteRenderer.flipX && Mathf.Sign(transform.localScale.x) < 0) {
 			Vector3 localScale = transform.localScale;
 			localScale.x *= -1;

@@ -113,47 +113,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1226703616
+--- !u!1 &211671161
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1226703620}
-  - component: {fileID: 1226703619}
-  - component: {fileID: 1226703618}
-  - component: {fileID: 1226703617}
+  - component: {fileID: 211671165}
+  - component: {fileID: 211671164}
+  - component: {fileID: 211671163}
+  - component: {fileID: 211671162}
   m_Layer: 0
-  m_Name: Robot
+  m_Name: Boy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1226703617
+--- !u!114 &211671162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1226703616}
+  m_GameObject: {fileID: 211671161}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2b7352c6f2346ccbf6eb96d03be47b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a86034ed476c4af589bc2ee99810498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleDown: {fileID: 11400000, guid: 5c76f8002c73d4ae28ac4a38fad5fffc, type: 2}
-  idleSide: {fileID: 11400000, guid: 9f7221a2c8ddb4cf788dae2a95daef6e, type: 2}
-  idleUp: {fileID: 11400000, guid: e68fd9b7dfde347e68e907137864ef9c, type: 2}
-  walkSide: {fileID: 11400000, guid: 6ae1bfc6376b64e368ac35f9698b4a1a, type: 2}
-  walkDown: {fileID: 11400000, guid: 5f20580049d9e432babfb6c847464650, type: 2}
-  walkUp: {fileID: 11400000, guid: 646b9ca1636f5465c95be90536b0f089, type: 2}
---- !u!212 &1226703618
+  walk: {fileID: 11400000, guid: 8b13a2c0f604a4b0fa74eb4f1d85ab3d, type: 2}
+  idle: {fileID: 11400000, guid: 1fac328ee0a424477a6f106dcbf9f569, type: 2}
+--- !u!114 &211671163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211671161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6bedfd93dd940258439ad6d20623a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultAnimation: {fileID: 0}
+  timeScale: 1
+--- !u!212 &211671164
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1226703616}
+  m_GameObject: {fileID: 211671161}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -180,41 +189,28 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1626664717
+  m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -670
+  m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28125, y: 1.15625}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1226703619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1226703616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6bedfd93dd940258439ad6d20623a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultAnimation: {fileID: 11400000, guid: 5c76f8002c73d4ae28ac4a38fad5fffc, type: 2}
-  timeScale: 1
---- !u!4 &1226703620
+--- !u!4 &211671165
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1226703616}
+  m_GameObject: {fileID: 211671161}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: -31.9, y: -6.8, z: -1.1875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -268,7 +264,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

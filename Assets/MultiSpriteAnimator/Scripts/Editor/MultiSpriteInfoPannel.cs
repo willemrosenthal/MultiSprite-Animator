@@ -385,7 +385,7 @@ public partial class MultiSpriteEditor
 
 				drawDebugSpriteRects = EditorGUILayout.Toggle( "Show Sprite Rects", drawDebugSpriteRects );
 
-				pixelsInCheckerboard = EditorGUILayout.IntSlider(pixelsInCheckerboard, 2, 64);
+				pixelsInCheckerboard = EditorGUILayout.IntSlider(pixelsInCheckerboard, 2, 512);
 
 				GUILayout.Space(15);
 				EditorGUI.indentLevel--;
