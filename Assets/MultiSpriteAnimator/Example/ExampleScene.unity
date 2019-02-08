@@ -145,9 +145,9 @@ MonoBehaviour:
   idleDown: {fileID: 0}
   idleSide: {fileID: 11400000, guid: 9f7221a2c8ddb4cf788dae2a95daef6e, type: 2}
   idleUp: {fileID: 11400000, guid: e68fd9b7dfde347e68e907137864ef9c, type: 2}
-  walkSide: {fileID: 0}
+  walkSide: {fileID: 11400000, guid: 6ae1bfc6376b64e368ac35f9698b4a1a, type: 2}
   walkDown: {fileID: 11400000, guid: 5f20580049d9e432babfb6c847464650, type: 2}
-  walkUp: {fileID: 0}
+  walkUp: {fileID: 11400000, guid: 5f20580049d9e432babfb6c847464650, type: 2}
 --- !u!212 &1226703618
 SpriteRenderer:
   m_ObjectHideFlags: 0

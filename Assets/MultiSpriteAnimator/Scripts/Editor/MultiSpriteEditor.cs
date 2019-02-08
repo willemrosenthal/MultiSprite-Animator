@@ -143,15 +143,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 		
 		if (Selection.activeObject is DefaultAsset)
 			return;
-		//Debug.Log(Selection.activeObject.GetType());
-		// try {
-		// 	string fix = (Selection.activeObject as MSAnimation).name;
-		// }
-		// catch {
-		// 	Debug.Log("did it fix it?");
-		// 	Repaint();
-		// 	return;
-		// }
+
 			
 		obj = Selection.activeObject;
 		//if (obj) Selection.selectionChanged
@@ -172,6 +164,8 @@ public partial class MultiSpriteEditor: EditorWindow {
 		_frames = _anim.ConvertForEditor();
 		_animFrameList = null;
 		frameIndex = 0;
+
+		spriteLables = null;
 
 		ConvertSpriteLayerForEditing();
 		BuildFrameCurveArray();

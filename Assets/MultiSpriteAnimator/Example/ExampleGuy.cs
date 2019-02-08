@@ -15,7 +15,7 @@ public class ExampleGuy : MonoBehaviour {
 
 	Vector2 velocity = Vector2.zero;
 	Vector2 velocityAcceloration;
-	
+
 	Vector2 dir = Vector2.zero;
 	Vector2 lastFacing;
 
@@ -38,7 +38,17 @@ public class ExampleGuy : MonoBehaviour {
 		Animate();
 		
 		// gets velocity
-		velocity = Vector2.SmoothDamp( velocity, dir * speed, ref velocityAcceloration, accelTime, Mathf.Infinity);
+		velocity = Vector2.SmoothDamp( velocity, dir.normalized * speed, ref velocityAcceloration, accelTime, Mathf.Infinity);
+
+		if (velocity.magnitude < 0.1)
+			velocity = Vector2.zero;
+
+		// change animation speed based on velocity if moving
+		if (velocity != Vector2.zero)
+			mas.timeScale = velocity.magnitude / speed * 2;
+
+		// playback at normal speed if not moving
+		else mas.timeScale = 1;
 		
 		// moves him
 		transform.position += (Vector3)velocity * Time.deltaTime;
@@ -48,7 +58,7 @@ public class ExampleGuy : MonoBehaviour {
 	
 	void Animate() {
 		// if not moving
-		if (dir == Vector2.zero) { 
+		if (velocity == Vector2.zero) { 
 			// if facing to the side
 			if (lastFacing.x != 0) 
 				mas.Play(idleSide);
