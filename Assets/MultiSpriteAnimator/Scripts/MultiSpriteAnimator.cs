@@ -49,7 +49,7 @@ public class MultiSpriteAnimator : MonoBehaviour {
 	}
 
 	// plays an animaiton
-	public void Play(MSAnimation animation, bool playIfNotAlreadyPlaying = true) {
+	public void Play(MSAnimation animation, float startAnimationAtTime = 0, bool playIfNotAlreadyPlaying = true) {
 		if ((animation == null) || (playIfNotAlreadyPlaying && animation.name == animName))
 			return;
 
@@ -63,13 +63,17 @@ public class MultiSpriteAnimator : MonoBehaviour {
 		PrepareSprites();
 
 		// prepare animation data
-		playback.PrepareAnimationData(currentAnimation);
+		playback.PrepareAnimationData(currentAnimation, startAnimationAtTime);
 
 		// reset animation
 		animName = animation.name;
 
 		// starts animating each sprite
 		KeyframeUpdateSprites();
+	}
+
+	public float GetTime() {
+		return playback.time;
 	}
 
 	public bool IsPlaying(MSAnimation animation = null) {

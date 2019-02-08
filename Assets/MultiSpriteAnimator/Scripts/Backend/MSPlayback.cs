@@ -19,7 +19,7 @@ public class MSPlayback {
     float pixelUnit;
 
 
-    public void PrepareAnimationData(MSAnimation newAnimation) {
+    public void PrepareAnimationData(MSAnimation newAnimation, float startingTime = 0) {
         // gets ref to new animation
         animation = newAnimation;
         // sets up fps
@@ -37,6 +37,8 @@ public class MSPlayback {
         // caclulate pixel snap stuff
         if (animation.pixelPerfect)
             pixelUnit = 1f/animation.pixelsPerUnit;
+
+        IncrementTime(startingTime);
     }
 
     public void ResetPlayback() {

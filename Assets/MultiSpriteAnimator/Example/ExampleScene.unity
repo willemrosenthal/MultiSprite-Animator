@@ -142,12 +142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2b7352c6f2346ccbf6eb96d03be47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleDown: {fileID: 0}
+  idleDown: {fileID: 11400000, guid: 5c76f8002c73d4ae28ac4a38fad5fffc, type: 2}
   idleSide: {fileID: 11400000, guid: 9f7221a2c8ddb4cf788dae2a95daef6e, type: 2}
   idleUp: {fileID: 11400000, guid: e68fd9b7dfde347e68e907137864ef9c, type: 2}
   walkSide: {fileID: 11400000, guid: 6ae1bfc6376b64e368ac35f9698b4a1a, type: 2}
   walkDown: {fileID: 11400000, guid: 5f20580049d9e432babfb6c847464650, type: 2}
-  walkUp: {fileID: 11400000, guid: 5f20580049d9e432babfb6c847464650, type: 2}
+  walkUp: {fileID: 11400000, guid: 646b9ca1636f5465c95be90536b0f089, type: 2}
 --- !u!212 &1226703618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6bedfd93dd940258439ad6d20623a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAnimation: {fileID: 0}
+  defaultAnimation: {fileID: 11400000, guid: 5c76f8002c73d4ae28ac4a38fad5fffc, type: 2}
   timeScale: 1
 --- !u!4 &1226703620
 Transform:
@@ -268,7 +268,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
