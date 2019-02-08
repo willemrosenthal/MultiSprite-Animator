@@ -22,7 +22,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 	bool changesMade = false;
 	bool popSave = false;
 
-	Object obj = null;
+	[SerializeField] Object obj = null;
 
 	// curves
 	string[] frameCurves;
@@ -76,8 +76,10 @@ public partial class MultiSpriteEditor: EditorWindow {
 		BuildGameLayers();
 		OnSelectionChange();
 	}
+
 	void OnFocus() {
 		OnSelectionChange();
+		CheckIfPowerToolsPluginIsInstalled();
 	}
 
 	void OnDisable() {
@@ -87,14 +89,14 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 	void CheckIfPowerToolsPluginIsInstalled() {
 		Assembly assembly = typeof(PowerToolsIntegration).Assembly;
-		//Type type = assembly.GetType(namespaceQualifiedTypeName);
+
 		System.Type[] tps = assembly.GetTypes();
 		for (int i = 0; i < tps.Length; i++) {
 			if (tps[i].Name == "SpriteAnim") {
 				asType = tps[i];
 			}
 		}
-		
+
 		if (asType != null)
 			MSEditorUtils.AddDefineIfNecessary("POWER_TOOLS", BuildTargetGroup.Standalone);
 		else MSEditorUtils.RemoveDefineIfNecessary("POWER_TOOLS", BuildTargetGroup.Standalone);
@@ -138,6 +140,18 @@ public partial class MultiSpriteEditor: EditorWindow {
 		if (obj != null && obj != Selection.activeObject && obj is MSAnimation && Selection.activeObject is MSAnimation && popSave) {
 			Revert();
 		}
+		
+		if (Selection.activeObject is DefaultAsset)
+			return;
+		//Debug.Log(Selection.activeObject.GetType());
+		// try {
+		// 	string fix = (Selection.activeObject as MSAnimation).name;
+		// }
+		// catch {
+		// 	Debug.Log("did it fix it?");
+		// 	Repaint();
+		// 	return;
+		// }
 			
 		obj = Selection.activeObject;
 		//if (obj) Selection.selectionChanged
@@ -175,7 +189,6 @@ public partial class MultiSpriteEditor: EditorWindow {
 	}
 
 	public void OnGUI() {
-
 		GUI.SetNextControlName("none");
 		// If no sprite selected, show editor	
 		if ( _anim == null || _frames == null )
@@ -438,6 +451,9 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 		changesMade = false;
 		popSave = false;
+
+		Debug.Log("reset has occured");
+		Repaint();
 	}
 
 	void ConvertSpriteLayerForEditing() {
