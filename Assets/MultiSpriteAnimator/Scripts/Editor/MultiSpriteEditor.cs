@@ -125,8 +125,10 @@ public partial class MultiSpriteEditor: EditorWindow {
 	void OnUndoRedo() {
 		//if animation still selected, undo changes
 		if (_anim != null) {
-			NewAnimationSelected();
+			int lastindex = frameIndex;
+			NewAnimationSelected(false);
 			Repaint();
+			frameIndex = lastindex;
 		}
 	}
 
@@ -160,7 +162,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 		Repaint();
 	}
 
-	void NewAnimationSelected() {
+	void NewAnimationSelected(bool sizeToFit = true) {
 		_frames = _anim.ConvertForEditor();
 		_animFrameList = null;
 		frameIndex = 0;
@@ -174,10 +176,12 @@ public partial class MultiSpriteEditor: EditorWindow {
 		playback.PrepareAnimationData(_anim);
 
 
-		Rect previewRect = new Rect(0, 20, position.width-FRAME_PANEL_WIDTH-SPRITE_PANEL_WIDTH, position.height-20-TIMELINE_HEIGHT);
-		previewRect.width -= 50;
-		previewRect.height -= 50;
-		LayoutTimelineSprite(previewRect, 0, true);
+		if (sizeToFit) {
+			Rect previewRect = new Rect(0, 20, position.width-FRAME_PANEL_WIDTH-SPRITE_PANEL_WIDTH, position.height-20-TIMELINE_HEIGHT);
+			previewRect.width -= 50;
+			previewRect.height -= 50;
+			LayoutTimelineSprite(previewRect, 0, true);
+		}
 		if (m_previewScale < 0)
 			m_previewScale *= -1;
 	}
