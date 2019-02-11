@@ -543,7 +543,18 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 
 	void Update() {
-		if ( _anim != null && m_playing ) { //&& m_dragState != eDragState.Scrub
+		//When going to Play, we need to clear the selection since references get broken.
+		if ( m_gameWasPlaying != EditorApplication.isPlayingOrWillChangePlaymode ) {
+			m_gameWasPlaying = EditorApplication.isPlayingOrWillChangePlaymode;
+			m_playing = false;
+			m_animTime = 0;
+			Repaint();
+			return;
+		}
+
+		if ( _anim != null && m_playing ) {
+
+
 			// Update anim time if playing (and not scrubbing)
 			float delta = (float)(EditorApplication.timeSinceStartup - m_editorTimePrev);
 
@@ -569,16 +580,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 			Repaint();
 		}
-		// else if ( m_dragDropHovering || m_dragState != eDragState.None ) {
-		// 	Repaint();
-		// }
 
-		//When going to Play, we need to clear the selection since references get broken.
-		if ( m_gameWasPlaying != EditorApplication.isPlayingOrWillChangePlaymode ) {
-			m_gameWasPlaying = EditorApplication.isPlayingOrWillChangePlaymode;
-			m_playing = false;
-			m_animTime = 0;
-		}
 
 		m_editorTimePrev = EditorApplication.timeSinceStartup;
 
