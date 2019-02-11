@@ -58,8 +58,8 @@ public class RobotExample : MonoBehaviour {
 		// if x and y values are close, walk diagonally
 		if (dir.x != 0 && dir.y != 0) {
 			if (dir.y > 0)
-				mas.Play(walkUpSide, mas.GetTime());
-			else mas.Play(walkDownSide, mas.GetTime());
+				mas.Play(walkUpSide);
+			else mas.Play(walkDownSide);
 			FaceMovementDirection();
 		}
 
@@ -71,10 +71,10 @@ public class RobotExample : MonoBehaviour {
 
 		// if facing up
 		else if (dir.y > 0) 
-			mas.Play(walkUp, mas.GetTime());
+			mas.Play(walkUp);
 
 		// if facing down
-		else mas.Play(walkDown, mas.GetTime());
+		else mas.Play(walkDown);
 		
 	}
 
