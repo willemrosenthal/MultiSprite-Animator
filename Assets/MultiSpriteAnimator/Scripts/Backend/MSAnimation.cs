@@ -200,31 +200,37 @@ public class MSAnimation : ScriptableObject {
 
 	// returns the percent to next frame
 	public float GetFramePercent (int currentframe, float currentFrameTime) {
+		PrepareFrames();
 		return currentFrameTime / frames[currentframe].frameTime;
 	}
 
 	public int GetTotalFrames() {
+		PrepareFrames();
 		return frames.Count;
 	}
 
 	// used in animating
 	// POSITION
 	public Vector2 GetSpritePosition(int currentframe, int currentSprite, bool next = false) {
+		PrepareFrames();
 		int f = currentframe;
 		if (next) f = GetNextFrameNo(f); 
 		return frames[f].sprites[currentSprite].position;
 	}
 	public Vector2 GetSpriteScale(int currentframe, int currentSprite, bool next = false) {
+		PrepareFrames();
 		int f = currentframe;
 		if (next) f = GetNextFrameNo(f); 
 		return frames[f].sprites[currentSprite].scale;
 	}
 	public float GetSpriteRotation(int currentframe, int currentSprite, bool next = false) {
+		PrepareFrames();
 		int f = currentframe;
 		if (next) f = GetNextFrameNo(f); 
 		return -frames[f].sprites[currentSprite].rotation;
 	}
 	public int GetSortOrder(int currentframe, int currentSprite, bool next = false) {
+		PrepareFrames();
 		int f = currentframe;
 		if (next) f = GetNextFrameNo(f); 
 		return frames[f].sprites[currentSprite].sortOrder;
@@ -233,6 +239,7 @@ public class MSAnimation : ScriptableObject {
 
 
 	public int GetNextFrameNo(int currentframe) {
+		PrepareFrames();
 		if (frames.Count > currentframe+1)
 			return currentframe + 1;
 		else if (loop)
@@ -243,30 +250,37 @@ public class MSAnimation : ScriptableObject {
 
 
 	public bool GetHidden(int currentframe, int currentSprite) {
+		PrepareFrames();
 		return frames[currentframe].sprites[currentSprite].hide;
 	}
 
 	public bool GetFlipX(int currentframe, int currentSprite) {
+		PrepareFrames();
 		return frames[currentframe].sprites[currentSprite].flipX;
 	}
 
 	public int GetFrameCurve(int currentframe) {
+		PrepareFrames();
 		return frameCurves[currentframe];
 	}
 
 	public int GetSpriteCurve(int currentframe, int currentSprite) {
+		PrepareFrames();
 		return frames[currentframe].sprites[currentSprite].curve - 1;
 	}
 
 	public AnimationClip GetAnimation(int currentframe, int currentSprite) {
+		PrepareFrames();
 		return frames[currentframe].sprites[currentSprite].animation;
 	}
 
 	public Sprite GetSprite (int currentframe, int currentSprite) {
+		PrepareFrames();
 		return frames[currentframe].sprites[currentSprite].sprite;
 	}
 
 	public float GetLength() {
+		PrepareFrames();
 		float totalTime = 0;
 		for (int i = 0; i < frames.Count; i++) {
 			totalTime += frames[i].frameTime;
@@ -275,10 +289,12 @@ public class MSAnimation : ScriptableObject {
 	}
 
 	public float GetFrameTime(int frameNo) {
+		PrepareFrames();
 		return frames[frameNo].frameTime;
 	}
 
 	public List<float> GetCumulativeFrameTimes() {
+		PrepareFrames();
 		List<float> frameTimes = new List<float>();
 		float totalTime = 0;
 		for (int i = 0; i < GetTotalFrames(); i++) {
@@ -290,18 +306,23 @@ public class MSAnimation : ScriptableObject {
 
 	// modding frames
 	public void SetFrameStartTime(int frameNo, float time) {
+		PrepareFrames();
 		frames[frameNo].startTime = time;
 	}
 	public void SetFrameEndTime(int frameNo, float time) {
+		PrepareFrames();
 		frames[frameNo].endTime = time;
 	}
 	public float GetTotalTime() {
+		PrepareFrames();
 		return frames[frames.Count-1].endTime;
 	}
 	public float GetFrameEndTime(int frameNo) {
+		PrepareFrames();
 		return frames[frameNo].endTime;
 	}
 	public MSFrame GetFrame(int frameNo) {
+		PrepareFrames();
 		return frames[frameNo];
 	}
 

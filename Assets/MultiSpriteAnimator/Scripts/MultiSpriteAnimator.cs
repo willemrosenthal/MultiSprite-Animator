@@ -213,5 +213,9 @@ public class MultiSpriteAnimator : MonoBehaviour {
 			#endif
 		}
 	}
+
+	public List<Transform> GetParts() {
+		return parts;
+	}
 }
 }

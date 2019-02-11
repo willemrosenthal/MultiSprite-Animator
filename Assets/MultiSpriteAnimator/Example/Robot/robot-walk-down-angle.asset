@@ -57,10 +57,10 @@ MonoBehaviour:
   - 0.3
   - 0.4
   frameLable:
-  - frame 2
-  - frame 3
-  - frame 0
-  - frame 1
+  - frame0
+  - frame1
+  - frame2
+  - frame3
   frameCurves: 02000000030000000200000003000000
   animations:
   - {fileID: 0}
@@ -128,22 +128,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300002, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300008, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300016, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300016, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
   - {fileID: 21300004, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
   - {fileID: 21300014, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300012, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
+  - {fileID: 21300006, guid: 89e052c93729d4efdadac4c33c017e4a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

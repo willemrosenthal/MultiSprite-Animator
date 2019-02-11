@@ -17,7 +17,8 @@ public class RobotExample : MonoBehaviour {
 	Vector2 dir = Vector2.zero;
 
 	float speed = 5;
-	float accelTime = 0.4f;
+	float accelTime = 2f;
+	public float maxSpeedMultiplier = 3;
 
 	MultiSpriteAnimator mas;
 	SpriteRenderer sr;
@@ -33,12 +34,16 @@ public class RobotExample : MonoBehaviour {
 
 		// plays appropraite animation
 		Animate();
+
+		if (dir != Vector2.zero)
+			velocity = velocity.magnitude * dir.normalized;
+		else velocity *= (1-Time.deltaTime) * 0.98f;
 		
 		// gets velocity
-		velocity = Vector2.SmoothDamp( velocity, dir.normalized * speed, ref velocityAcceloration, accelTime, Mathf.Infinity);
+		velocity = Vector2.SmoothDamp( velocity, dir.normalized * speed * maxSpeedMultiplier, ref velocityAcceloration, accelTime, 3);
 
 		// change animation speed based on velocity if moving
-		mas.timeScale = velocity.magnitude / speed * 2;
+		mas.timeScale = velocity.magnitude / speed * maxSpeedMultiplier;
 	
 		// moves him
 		transform.position += (Vector3)velocity * Time.deltaTime;
@@ -47,25 +52,25 @@ public class RobotExample : MonoBehaviour {
 
 	
 	void Animate() {
-		if (velocity == Vector2.zero)
+		if (dir == Vector2.zero)
 			return;
 
 		// if x and y values are close, walk diagonally
-		if (velocity.x != 0 && velocity.y != 0 && Mathf.Abs(velocity.normalized.x) + 0.35 > Mathf.Abs(velocity.normalized.y) && Mathf.Abs(velocity.normalized.x) - 0.35 < Mathf.Abs(velocity.normalized.y)) {
-			if (velocity.y > 0)
+		if (dir.x != 0 && dir.y != 0) {
+			if (dir.y > 0)
 				mas.Play(walkUpSide, mas.GetTime());
 			else mas.Play(walkDownSide, mas.GetTime());
 			FaceMovementDirection();
 		}
 
 		// if facing to the side
-		else if (velocity.x != 0 && Mathf.Abs(velocity.x) > Mathf.Abs(velocity.y)) {
+		else if (dir.x != 0) {
 			mas.Play(walkSide, mas.GetTime());
 			FaceMovementDirection();
 		}
 
 		// if facing up
-		else if (velocity.y > 0) 
+		else if (dir.y > 0) 
 			mas.Play(walkUp, mas.GetTime());
 
 		// if facing down

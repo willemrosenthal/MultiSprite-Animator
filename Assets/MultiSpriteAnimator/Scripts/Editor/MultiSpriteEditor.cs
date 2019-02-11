@@ -178,6 +178,8 @@ public partial class MultiSpriteEditor: EditorWindow {
 		previewRect.width -= 50;
 		previewRect.height -= 50;
 		LayoutTimelineSprite(previewRect, 0, true);
+		if (m_previewScale < 0)
+			m_previewScale *= -1;
 	}
 
 	void BuildFrameCurveArray() {
@@ -557,6 +559,9 @@ public partial class MultiSpriteEditor: EditorWindow {
 				m_animTime = 0;
 				playback.time = 0;
 			}
+
+			if (m_previewScale < 0)
+				m_previewScale *= -1;
 
 			Repaint();
 		}
