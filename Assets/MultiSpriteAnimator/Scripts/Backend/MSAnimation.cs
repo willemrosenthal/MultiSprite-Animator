@@ -23,6 +23,7 @@ public class MSFrameSprite {
 	public AnimationClip animation = null;
 	public Sprite sprite = null;
 	public Vector2 position = Vector2.zero;
+	public float zPos = 0;
 	public bool flipX = false;
 	public Vector2 scale = Vector2.one;
 	public float rotation = 0; 
@@ -53,6 +54,7 @@ public class MSAnimation : ScriptableObject {
 	[HideInInspector] [SerializeField] List<AnimationClip> animations;
 	[HideInInspector] [SerializeField] List<Sprite> sprites;
 	[HideInInspector] [SerializeField] List<Vector2> positions;
+	[HideInInspector] [SerializeField] List<float> zPos;
 	[HideInInspector] [SerializeField] List<bool> flipX;
 	[HideInInspector] [SerializeField] List<Vector2> scales;
 	[HideInInspector] [SerializeField] List<float> rotations;
@@ -84,6 +86,7 @@ public class MSAnimation : ScriptableObject {
 		sprites = new List<Sprite>();
 		flipX = new List<bool>();
 		positions = new List<Vector2>();
+		zPos = new List<float>();
 		scales = new List<Vector2>();
 		rotations = new List<float>();
 		sortOrders = new List<int>();
@@ -102,6 +105,7 @@ public class MSAnimation : ScriptableObject {
 		sprites.Add(null);
 		flipX.Add(false);
 		positions.Add(Vector2.zero);
+		zPos.Add(0);
 		scales.Add(Vector2.one);
 		rotations.Add(0);
 		sortOrders.Add(0);
@@ -124,6 +128,8 @@ public class MSAnimation : ScriptableObject {
 
 			// new sprite list
 			frames[i].sprites = new List<MSFrameSprite>();
+
+			VersionMigration();
 			
 			for (int s = 0; s < totalSprites; s++) {
 				int slot = (i * totalSprites) + s;
@@ -131,6 +137,7 @@ public class MSAnimation : ScriptableObject {
 				frames[i].sprites[s].animation = animations[slot];
 				frames[i].sprites[s].sprite = sprites[slot];
 				frames[i].sprites[s].position = positions[slot];
+				frames[i].sprites[s].zPos = zPos[slot];
 				frames[i].sprites[s].flipX = flipX[slot];
 				frames[i].sprites[s].scale = scales[slot];
 				frames[i].sprites[s].rotation = rotations[slot];
@@ -140,6 +147,14 @@ public class MSAnimation : ScriptableObject {
 			}
 		}
 		return frames;
+	}
+
+	void VersionMigration() {
+		int totalSlots = frameTime.Count * totalSprites;
+
+		if (zPos == null) zPos = new List<float>();
+		while (zPos.Count < totalSlots)
+			zPos.Add(0);
 	}
 
 	// converts editor format to savable list format
@@ -156,6 +171,7 @@ public class MSAnimation : ScriptableObject {
 				animations.Add(frames[i].sprites[s].animation);
 				sprites.Add(frames[i].sprites[s].sprite);
 				positions.Add(frames[i].sprites[s].position);
+				zPos.Add(frames[i].sprites[s].zPos);
 				flipX.Add(frames[i].sprites[s].flipX);
 				scales.Add(frames[i].sprites[s].scale);
 				rotations.Add(frames[i].sprites[s].rotation);
@@ -184,6 +200,7 @@ public class MSAnimation : ScriptableObject {
 		animations = source.animations;
 		sprites = source.sprites;
 		positions = source.positions;
+		zPos = source.zPos;
 		flipX = source.flipX;
 		scales = source.scales;
 		rotations = source.rotations;
@@ -216,6 +233,12 @@ public class MSAnimation : ScriptableObject {
 		int f = currentframe;
 		if (next) f = GetNextFrameNo(f); 
 		return frames[f].sprites[currentSprite].position;
+	}
+	public float GetSpriteZPosition(int currentframe, int currentSprite, bool next = false) {
+		PrepareFrames();
+		int f = currentframe;
+		if (next) f = GetNextFrameNo(f); 
+		return frames[f].sprites[currentSprite].zPos;
 	}
 	public Vector2 GetSpriteScale(int currentframe, int currentSprite, bool next = false) {
 		PrepareFrames();

@@ -374,8 +374,32 @@ public partial class MultiSpriteEditor
 					GUILayout.Space(15);
 					EditorGUI.indentLevel--;
 				}
-			}
+			
 
+				//
+				// Experimental featuers OPTIONS
+				//
+				displayExperimentalFeatures = EditorGUILayout.Foldout(displayExperimentalFeatures, "Experimental Featuers", Styles.SETTINGS_STYLE_FOLDOUT);
+				if ( displayExperimentalFeatures ) {
+					EditorGUI.indentLevel++;
+					EditorGUI.BeginChangeCheck();
+					
+					GUILayout.BeginHorizontal();
+					GUILayout.Space(15);
+					GUILayout.Label( "Sprite Z Position: ", new GUIStyle(EditorStyles.label) { fixedHeight = 15, fontSize = 10});
+					_frames[frameIndex].sprites[spriteIndex].zPos = EditorGUILayout.FloatField( _frames[frameIndex].sprites[spriteIndex].zPos, new GUIStyle(EditorStyles.numberField) { fixedHeight = 15, fontSize = 10 });
+					GUILayout.EndHorizontal();
+					
+
+					if ( EditorGUI.EndChangeCheck() ) {
+						ChangeMade();
+						Repaint();
+					}
+					GUILayout.Space(15);
+					EditorGUI.indentLevel--;
+				}
+			
+			}
 			//
 			// Editor Settings
 			//

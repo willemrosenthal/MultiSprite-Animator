@@ -149,6 +149,11 @@ public class MSPlayback {
         if (curvedPercent == -1) curvedPercent = framePercent;
         return Vector2.Lerp(animation.GetSpritePosition(_frame, sprite), animation.GetSpritePosition(_frame, sprite, true), curvedPercent);
     }
+    public float GetUpdatedZPosition(int sprite, float curvedPercent = -1, int _frame = -1) {
+        if (_frame == -1) _frame = cFrameFPS;
+        if (curvedPercent == -1) curvedPercent = framePercent;
+        return Mathf.Lerp(animation.GetSpriteZPosition(_frame, sprite), animation.GetSpriteZPosition(_frame, sprite, true), curvedPercent);
+    }
     public Vector2 GetUpdatedScale(int sprite, float curvedPercent = -1, int _frame = -1) {
         if (_frame == -1) _frame = cFrameFPS;
         if (curvedPercent == -1) curvedPercent = framePercent;

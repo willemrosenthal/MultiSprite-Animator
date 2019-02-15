@@ -57,6 +57,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 	Color debugColor;
 
 	bool displayScaleAndRotate = false;
+	bool displayExperimentalFeatures = false;
 
 	bool displayAdvancedOptions = false;
 	bool displayAnimationSettings = false;

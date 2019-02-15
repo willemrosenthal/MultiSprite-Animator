@@ -174,7 +174,8 @@ public class MultiSpriteAnimator : MonoBehaviour {
 			Vector2 spritePos = playback.GetUpdatedPosition(i, curvedPercent);
 			if (currentAnimation.pixelPerfect)
 				spritePos = playback.PixelPerfertSnap(spritePos, sRend[i].sprite);
-			parts[i].localPosition = spritePos;  
+			float zPositioning = playback.GetUpdatedZPosition(i, curvedPercent);
+			parts[i].localPosition = (Vector3)spritePos + Vector3.forward * zPositioning;
 			parts[i].localScale = playback.GetUpdatedScale(i, curvedPercent); 
 			float rotation = playback.GetUpdatedRotation(i, curvedPercent);
 
