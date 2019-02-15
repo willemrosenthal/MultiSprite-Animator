@@ -18,6 +18,8 @@ public class MSPlayback {
 
     float pixelUnit;
 
+    int loops;
+
 
     public void PrepareAnimationData(MSAnimation newAnimation, float startingTime = 0) {
         // gets ref to new animation
@@ -94,6 +96,37 @@ public class MSPlayback {
         cFrameFPS = cFrame;
     }
 
+    public void DecrementFrame(bool forceLoop = false) {
+        if (forceLoop == false && !animation.loop && cFrame == 0 && loops > 0) {
+            framePercentFPS = 0;
+            cFrameFPS = cFrame;
+            return;
+        }
+        // start at end
+        cFrame = animation.GetTotalFrames() -1;
+        if (time < 0) {
+            time += animation.GetLength();
+            loops++;
+        }
+
+        // decrement frame
+        while (cFrame > 0 && animation.GetFrameStartTime(cFrame) > time) {
+            cFrame--;
+        }
+
+        // get frametime
+        if (cFrame > 0)
+            frameTime = time - animation.GetFrameEndTime(cFrame-1);
+        else frameTime = time;
+
+        // gets new frame percent
+        framePercent = animation.GetFramePercent(cFrame, frameTime);
+        
+        // updates fps frame data
+        framePercentFPS = framePercent;
+        cFrameFPS = cFrame;
+    }
+
     void FPSBasedFramePercent() {
         // animation plays at fps
         if(fpsTimer > fps) {
@@ -104,6 +137,7 @@ public class MSPlayback {
     }
 
     void LoopBack() {
+        loops++;
         cFrame = 0;
         time -= animation.GetTotalTime();
         frameTime = time;

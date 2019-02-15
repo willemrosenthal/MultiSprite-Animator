@@ -126,13 +126,18 @@ public class MultiSpriteAnimator : MonoBehaviour {
 				playing = false;
 
 			// if next frame has started
-			if (playback.framePercentFPS > 1) {
+			if (playback.framePercentFPS > 1 || playback.framePercentFPS <= 0) {
 				// advance the frame
-				playback.AdvanceFrame();
+				if (playback.framePercentFPS > 1) {
+					playback.AdvanceFrame();
+				}
+				// go back a frame
+				else playback.DecrementFrame();
+
 				// updates sprites for the new keyframe
 				KeyframeUpdateSprites();
 			}
-			
+
 			UpdateSprites();
 		}
 

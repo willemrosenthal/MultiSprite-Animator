@@ -416,7 +416,7 @@ public partial class MultiSpriteEditor {
 		//highlight selected frames
 		if ( selected ) {
 			//frameRect.width = rect.width;
-			DrawRect( frameRect, Color.grey.WithAlpha(0.3f) );
+			DrawRect( frameRect, ColorAlpha(Color.grey, 0.3f) );
 		}
 		DrawLine( new Vector2(endOffset,0), new Vector2(endOffset,rect.height), new Color(0.4f,0.4f,0.4f) );
 		LayoutTimelineSprite( frameRect, frameId );
@@ -590,7 +590,7 @@ public partial class MultiSpriteEditor {
 		float endPosOnTimeline = m_timelineOffset + (finalTime * m_timelineScale);
 
 		Rect selectionRect = new Rect(rect){ xMin = Mathf.Max(rect.xMin,startPosOnTimeline), xMax = Mathf.Min(rect.xMax, endPosOnTimeline) };
-		DrawRect(selectionRect,COLOR_UNITY_BLUE.WithAlpha(0.1f),COLOR_UNITY_BLUE.WithAlpha(0.6f));	
+		DrawRect(selectionRect,ColorAlpha(COLOR_UNITY_BLUE, 0.1f), ColorAlpha(COLOR_UNITY_BLUE, 0.6f));	
 	}
 
 

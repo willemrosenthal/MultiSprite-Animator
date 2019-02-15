@@ -462,7 +462,6 @@ public partial class MultiSpriteEditor: EditorWindow {
 		changesMade = false;
 		popSave = false;
 
-		Debug.Log("reset has occured");
 		Repaint();
 	}
 
@@ -567,6 +566,9 @@ public partial class MultiSpriteEditor: EditorWindow {
 
 			if (playback.framePercentFPS > 1)
 				playback.AdvanceFrame(true);
+
+			if (playback.framePercentFPS <= 0)
+				playback.DecrementFrame(true);
 
 			// stop playback if we aren't looping
 			if ( m_animTime >= _anim.GetLength() && !m_previewloop) {
@@ -898,7 +900,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 	void LayoutToolbarTimeScaleSlider() {
 		if (GUILayout.Button(Contents.SPEEDSCALE, Styles.PREVIEW_LABEL_BOLD, GUILayout.Width(30)) )
 			m_previewSpeedScale = 1;
-		m_previewSpeedScale = GUILayout.HorizontalSlider(m_previewSpeedScale, 0, 4, Styles.PREVIEW_SLIDER, Styles.PREVIEW_SLIDER_THUMB, GUILayout.Width(50));
+		m_previewSpeedScale = GUILayout.HorizontalSlider(m_previewSpeedScale, -2, 4, Styles.PREVIEW_SLIDER, Styles.PREVIEW_SLIDER_THUMB, GUILayout.Width(50));
 		GUILayout.Label(m_previewSpeedScale.ToString("0.00"), Styles.PREVIEW_LABEL_SPEED, GUILayout.Width(40));
 	}
 
@@ -915,6 +917,9 @@ public partial class MultiSpriteEditor: EditorWindow {
 		}
 	}
 
+	Color ColorAlpha(Color col, float alpha ) {
+		return new Color(col.r,col.g,col.b,alpha);
+	}
 	
 }
 }

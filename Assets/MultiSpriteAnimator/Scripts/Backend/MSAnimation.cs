@@ -321,6 +321,10 @@ public class MSAnimation : ScriptableObject {
 		PrepareFrames();
 		return frames[frameNo].endTime;
 	}
+	public float GetFrameStartTime(int frameNo) {
+		PrepareFrames();
+		return frames[frameNo].startTime;
+	}
 	public MSFrame GetFrame(int frameNo) {
 		PrepareFrames();
 		return frames[frameNo];
