@@ -409,7 +409,11 @@ public partial class MultiSpriteEditor
 
 				drawDebugSpriteRects = EditorGUILayout.Toggle( "Show Sprite Rects", drawDebugSpriteRects );
 
+				EditorGUILayout.LabelField("Checker Background Scale");
 				pixelsInCheckerboard = EditorGUILayout.IntSlider(pixelsInCheckerboard, 2, 512);
+				
+				//GUILayout.Label( "Sprite Z Position: ", new GUIStyle(EditorStyles.label) { fixedHeight = 15, fontSize = 10});
+				//pixelsInCheckerboard = EditorGUILayout.IntSlider(pixelsInCheckerboard, 2, 512);
 
 				GUILayout.Space(15);
 				EditorGUI.indentLevel--;

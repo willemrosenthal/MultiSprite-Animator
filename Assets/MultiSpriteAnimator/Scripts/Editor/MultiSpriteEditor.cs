@@ -67,7 +67,7 @@ public partial class MultiSpriteEditor: EditorWindow {
 	// key commands
 	bool rotateDragMode = false;
 
-	[MenuItem("Window/Multisprite Animation")]
+	[MenuItem("Window/MultiSprite Editor")]
 	public static void ShowWindow() {
 		EditorWindow.GetWindow<MultiSpriteEditor>("MS Anim Editior");
 	}

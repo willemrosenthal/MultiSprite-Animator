@@ -12,6 +12,9 @@ public class MultiSpriteAnimator : MonoBehaviour {
 
 	public MSAnimation defaultAnimation = null;
 	public float timeScale = 1;
+	[HideInInspector] public Material materialForSprites = null;
+	[HideInInspector] public List <string> componentsToAddToEachSprite;
+	//public MonoScript[] componentsToAddToEachSprite;
 
 	bool playing;
 
@@ -101,6 +104,17 @@ public class MultiSpriteAnimator : MonoBehaviour {
 		g.name = "MS_sprite" + parts.Count;
 		g.transform.parent = this.transform;
 		sRend.Add(g.AddComponent<SpriteRenderer>());
+
+		if (materialForSprites != null)
+			sRend[sRend.Count - 1].material = materialForSprites;
+
+		if (componentsToAddToEachSprite != null) {
+			for (int i = 0; i < componentsToAddToEachSprite.Count; i++) {
+				if (System.Type.GetType(componentsToAddToEachSprite[i]) != null) {
+					g.AddComponent(System.Type.GetType(componentsToAddToEachSprite[i]));
+				}
+			}
+		}
 
 		#if POWER_TOOLS
 			sAnimator.Add(g.AddComponent<Animator>());

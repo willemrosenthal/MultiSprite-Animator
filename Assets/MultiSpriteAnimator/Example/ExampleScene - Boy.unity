@@ -157,6 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultAnimation: {fileID: 0}
   timeScale: 1
+  materialForSprites: {fileID: 0}
+  componentsToAddToEachSprite: []
 --- !u!212 &211671164
 SpriteRenderer:
   m_ObjectHideFlags: 0
