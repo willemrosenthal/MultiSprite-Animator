@@ -51,6 +51,10 @@ public class MultiSpriteAnimator : MonoBehaviour {
 			Play(defaultAnimation);
 	}
 
+	public MSAnimation GetCurrentAnimation() {
+		return currentAnimation;
+	}
+
 	// plays an animaiton
 	public void Play(MSAnimation animation, float startAnimationAtTime = 0, bool forcePlay = false) {
 		if ((animation == null) || (!forcePlay && animation.name == animName))
